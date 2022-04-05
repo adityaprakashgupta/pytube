@@ -7,6 +7,9 @@ from urllib.error import URLError
 from pytube import request
 from pytube.exceptions import MaxRetriesExceeded
 
+import urllib3
+
+http = urllib3.PoolManager(num_pools=100)
 
 @mock.patch("pytube.request.urlopen")
 def test_streaming(mock_urlopen):
