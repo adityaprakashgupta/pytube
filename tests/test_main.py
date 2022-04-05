@@ -6,6 +6,9 @@ import pytube
 from pytube import YouTube
 from pytube.exceptions import RegexMatchError
 
+import urllib3
+
+http = urllib3.PoolManager(num_pools=50)
 
 @mock.patch("urllib.request.install_opener")
 def test_install_proxy(opener):
