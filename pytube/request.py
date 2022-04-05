@@ -4,6 +4,7 @@ import json
 import logging
 import re
 import socket
+import urllib3
 from functools import lru_cache
 from urllib import parse
 from urllib.error import URLError
@@ -15,6 +16,7 @@ from pytube.helpers import regex_search
 logger = logging.getLogger(__name__)
 default_range_size = 9437184  # 9MB
 
+http = urllib3.PoolManager(num_pools=100)
 
 def _execute_request(
     url,
