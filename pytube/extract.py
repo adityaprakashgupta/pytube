@@ -13,6 +13,9 @@ from pytube.helpers import regex_search
 from pytube.metadata import YouTubeMetadata
 from pytube.parser import parse_for_object, parse_for_all_objects
 
+import urllib3
+
+http = urllib3.PoolManager(num_pools=100)
 
 logger = logging.getLogger(__name__)
 
